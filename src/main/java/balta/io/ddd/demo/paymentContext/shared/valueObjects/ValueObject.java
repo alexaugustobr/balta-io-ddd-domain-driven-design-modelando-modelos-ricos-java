@@ -1,4 +1,6 @@
 package balta.io.ddd.demo.paymentContext.shared.valueObjects;
 
-public abstract class ValueObject {
+import balta.io.ddd.demo.notification.Notifiable;
+
+public abstract class ValueObject extends Notifiable {
 }

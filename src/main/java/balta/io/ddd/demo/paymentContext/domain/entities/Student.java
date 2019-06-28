@@ -23,6 +23,8 @@ public class Student extends Entity {
         this.document = document;
         this.email = email;
         this.address = address;
+
+        this.addNotifications(name, email, address);
     }
 
     public Name getName() {
