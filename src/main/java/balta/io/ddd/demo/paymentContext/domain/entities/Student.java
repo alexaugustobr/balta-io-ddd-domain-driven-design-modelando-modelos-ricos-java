@@ -1,6 +1,7 @@
 package balta.io.ddd.demo.paymentContext.domain.entities;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Student {
@@ -23,47 +24,35 @@ public class Student {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getDocument() {
         return document;
     }
 
-    public void setDocument(String document) {
-        this.document = document;
-    }
-
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public List<Subscription> getSubscriptionList() {
-        return subscriptionList;
-    }
-
-    public void setSubscriptionList(List<Subscription> subscriptionList) {
-        this.subscriptionList = subscriptionList;
+        return Collections.unmodifiableList(this.subscriptionList);
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+
+    public Student addSubscription(Subscription newSubscription) {
+
+        for (Subscription subscription : this.subscriptionList) {
+            subscription.activate();
+        }
+
+        this.subscriptionList.add(newSubscription);
+
+        return this;
     }
 }

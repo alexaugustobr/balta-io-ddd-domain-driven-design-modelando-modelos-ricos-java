@@ -1,5 +1,7 @@
 package balta.io.ddd.demo.paymentContext.domain.entities;
 
+import balta.io.ddd.demo.Utils.GUIDUtils;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -9,10 +11,21 @@ public abstract class Payment {
     private Date expireDate;
     private BigDecimal total;
     private BigDecimal totalPaid;
-    private String number;
+    private String number = GUIDUtils.generateNewGuidNumbersOnlyAsString();
     private String document;
     private String address;
     private String payer;
+
+    public Payment(Date paidDate, Date expireDate, BigDecimal total, BigDecimal totalPaid, String number, String document, String address, String payer) {
+        this.paidDate = paidDate;
+        this.expireDate = expireDate;
+        this.total = total;
+        this.totalPaid = totalPaid;
+        this.number = number;
+        this.document = document;
+        this.address = address;
+        this.payer = payer;
+    }
 
     public Date getPaidDate() {
         return paidDate;
@@ -78,76 +91,5 @@ public abstract class Payment {
         this.payer = payer;
     }
 
-    public class Boleto extends Payment {
-        private String barcode;
-        private String email;
-        private String boletoNumber;
-
-        public String getBarcode() {
-            return barcode;
-        }
-
-        public void setBarcode(String barcode) {
-            this.barcode = barcode;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public void setEmail(String email) {
-            this.email = email;
-        }
-
-        public String getBoletoNumber() {
-            return boletoNumber;
-        }
-
-        public void setBoletoNumber(String boletoNumber) {
-            this.boletoNumber = boletoNumber;
-        }
-    }
-
-    public class CreditCard extends Payment {
-        private String cardHolderName;
-        private String cardNumber;
-        private String lastTransactionNumber;
-
-        public String getCardHolderName() {
-            return cardHolderName;
-        }
-
-        public void setCardHolderName(String cardHolderName) {
-            this.cardHolderName = cardHolderName;
-        }
-
-        public String getCardNumber() {
-            return cardNumber;
-        }
-
-        public void setCardNumber(String cardNumber) {
-            this.cardNumber = cardNumber;
-        }
-
-        public String getLastTransactionNumber() {
-            return lastTransactionNumber;
-        }
-
-        public void setLastTransactionNumber(String lastTransactionNumber) {
-            this.lastTransactionNumber = lastTransactionNumber;
-        }
-    }
-
-    public class PayPal extends Payment {
-        private String transactionCode;
-
-        public String getTransactionCode() {
-            return transactionCode;
-        }
-
-        public void setTransactionCode(String transactionCode) {
-            this.transactionCode = transactionCode;
-        }
-    }
 }
 
