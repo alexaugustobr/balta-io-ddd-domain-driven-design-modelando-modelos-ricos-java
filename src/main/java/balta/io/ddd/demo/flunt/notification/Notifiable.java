@@ -1,36 +1,38 @@
-package balta.io.ddd.demo.notification;
+package balta.io.ddd.demo.flunt.notification;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class Notifiable {
+public abstract class Notifiable implements INotifiable {
 
-    private List<Notification> notifications = new ArrayList();
+    private List<Notification> notificationList = new ArrayList();
 
-    protected Notifiable() {
-    }
-
+    @Override
     public final void addNotification(String property, String message) {
-        this.notifications.add(new Notification(property, message));
+        this.notificationList.add(new Notification(property, message));
     }
 
+    @Override
     public final void addNotification(Notification notification) {
-        this.notifications.add(notification);
+        this.notificationList.add(notification);
     }
 
+    @Override
     public final void addNotifications(Collection<Notification> notifications) {
-        this.notifications.addAll(notifications);
+        this.notificationList.addAll(notifications);
     }
 
+    @Override
     public final void addNotifications(Notifiable item) {
         if (item == null) {
             return;
         }
-        this.addNotifications(item.notifications);
+        this.addNotifications(item.notificationList);
     }
 
+    @Override
     public final void addNotifications(Notifiable... items) {
         for (Notifiable item : items) {
             if (item != null) {
@@ -39,12 +41,12 @@ public abstract class Notifiable {
         }
     }
 
-    public List<Notification> getNotifications() {
-        return Collections.unmodifiableList(notifications);
+    public List<Notification> getNotificationList() {
+        return Collections.unmodifiableList(notificationList);
     }
 
     public boolean isInvalid() {
-        return !notifications.isEmpty();
+        return !notificationList.isEmpty();
     }
 
     public boolean isValid() {

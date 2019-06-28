@@ -1,6 +1,6 @@
 package balta.io.ddd.demo.paymentContext.shared;
 
-import balta.io.ddd.demo.notification.Notifiable;
+import balta.io.ddd.demo.flunt.notification.Notifiable;
 
 import java.util.UUID;
 

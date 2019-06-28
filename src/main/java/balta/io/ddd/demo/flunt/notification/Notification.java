@@ -1,4 +1,4 @@
-package balta.io.ddd.demo.notification;
+package balta.io.ddd.demo.flunt.notification;
 
 public class Notification {
 

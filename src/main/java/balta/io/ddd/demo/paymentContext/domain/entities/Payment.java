@@ -1,10 +1,10 @@
 package balta.io.ddd.demo.paymentContext.domain.entities;
 
-import balta.io.ddd.demo.utils.GUIDUtils;
 import balta.io.ddd.demo.paymentContext.domain.valueObjects.Address;
 import balta.io.ddd.demo.paymentContext.domain.valueObjects.Document;
 import balta.io.ddd.demo.paymentContext.domain.valueObjects.Email;
 import balta.io.ddd.demo.paymentContext.shared.Entity;
+import balta.io.ddd.demo.utils.GUIDUtils;
 
 import java.math.BigDecimal;
 import java.util.Date;
