@@ -1,4 +1,4 @@
-package balta.io.ddd.demo.Utils;
+package balta.io.ddd.demo.utils;
 
 import java.util.UUID;
 

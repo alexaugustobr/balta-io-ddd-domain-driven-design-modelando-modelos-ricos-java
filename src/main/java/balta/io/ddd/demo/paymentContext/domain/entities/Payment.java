@@ -1,6 +1,6 @@
 package balta.io.ddd.demo.paymentContext.domain.entities;
 
-import balta.io.ddd.demo.Utils.GUIDUtils;
+import balta.io.ddd.demo.utils.GUIDUtils;
 import balta.io.ddd.demo.paymentContext.domain.valueObjects.Address;
 import balta.io.ddd.demo.paymentContext.domain.valueObjects.Document;
 import balta.io.ddd.demo.paymentContext.domain.valueObjects.Email;
