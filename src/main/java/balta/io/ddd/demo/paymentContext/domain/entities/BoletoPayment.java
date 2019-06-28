@@ -1,18 +1,19 @@
 package balta.io.ddd.demo.paymentContext.domain.entities;
 
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Address;
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Document;
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Email;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class BoletoPayment extends Payment {
     private String barcode;
-    private String email;
     private String boletoNumber;
 
-    public BoletoPayment(Date paidDate, Date expireDate, BigDecimal total, BigDecimal totalPaid, String number, String document, String address, String payer, String barcode, String email, String boletoNumber) {
-        super(paidDate, expireDate, total, totalPaid, number, document, address, payer);
+    public BoletoPayment(Date paidDate, Date expireDate, BigDecimal total, BigDecimal totalPaid, Document document, Address address, String payer, Email email, String barcode) {
+        super(paidDate, expireDate, total, totalPaid, document, address, payer, email);
         this.barcode = barcode;
-        this.email = email;
-        this.boletoNumber = boletoNumber;
     }
 
     public String getBarcode() {
@@ -21,14 +22,6 @@ public class BoletoPayment extends Payment {
 
     public void setBarcode(String barcode) {
         this.barcode = barcode;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getBoletoNumber() {

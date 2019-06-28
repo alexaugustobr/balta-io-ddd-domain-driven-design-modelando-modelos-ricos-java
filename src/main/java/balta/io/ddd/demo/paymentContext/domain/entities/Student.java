@@ -1,38 +1,39 @@
 package balta.io.ddd.demo.paymentContext.domain.entities;
 
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Address;
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Document;
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Email;
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Name;
+import balta.io.ddd.demo.paymentContext.shared.Entity;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Student {
+public class Student extends Entity {
 
-    private String firstName;
-    private String lastName;
-    private String document;
-    private String email;
-    private String address;
+    private Name name;
+    private Document document;
+    private Email email;
+    private Address address;
     private List<Subscription> subscriptionList = new ArrayList<>();
 
-    public Student(String firstName, String lastName, String document, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Student(Name name, Document document, Email email, Address address) {
+        this.name = name;
         this.document = document;
         this.email = email;
+        this.address = address;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public Name getName() {
+        return name;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getDocument() {
+    public Document getDocument() {
         return document;
     }
 
-    public String getEmail() {
+    public Email getEmail() {
         return email;
     }
 
@@ -40,10 +41,9 @@ public class Student {
         return Collections.unmodifiableList(this.subscriptionList);
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
-
 
     public Student addSubscription(Subscription newSubscription) {
 

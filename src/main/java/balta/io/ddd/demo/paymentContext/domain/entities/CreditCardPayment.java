@@ -1,5 +1,9 @@
 package balta.io.ddd.demo.paymentContext.domain.entities;
 
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Address;
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Document;
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Email;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -8,8 +12,8 @@ public class CreditCardPayment extends Payment {
     private String cardNumber;
     private String lastTransactionNumber;
 
-    public CreditCardPayment(Date paidDate, Date expireDate, BigDecimal total, BigDecimal totalPaid, String number, String document, String address, String payer, String cardHolderName) {
-        super(paidDate, expireDate, total, totalPaid, number, document, address, payer);
+    public CreditCardPayment(Date paidDate, Date expireDate, BigDecimal total, BigDecimal totalPaid, Document document, Address address, String payer, Email email, String cardHolderName) {
+        super(paidDate, expireDate, total, totalPaid, document, address, payer, email);
         this.cardHolderName = cardHolderName;
     }
 

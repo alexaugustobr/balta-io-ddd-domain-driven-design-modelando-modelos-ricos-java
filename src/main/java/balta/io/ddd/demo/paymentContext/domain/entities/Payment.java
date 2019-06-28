@@ -1,95 +1,71 @@
 package balta.io.ddd.demo.paymentContext.domain.entities;
 
 import balta.io.ddd.demo.Utils.GUIDUtils;
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Address;
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Document;
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Email;
+import balta.io.ddd.demo.paymentContext.shared.Entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-public abstract class Payment {
+public abstract class Payment extends Entity {
 
     private Date paidDate;
     private Date expireDate;
     private BigDecimal total;
     private BigDecimal totalPaid;
     private String number = GUIDUtils.generateNewGuidNumbersOnlyAsString();
-    private String document;
-    private String address;
+    private Document document;
+    private Address address;
     private String payer;
+    private Email email;
 
-    public Payment(Date paidDate, Date expireDate, BigDecimal total, BigDecimal totalPaid, String number, String document, String address, String payer) {
+    public Payment(Date paidDate, Date expireDate, BigDecimal total, BigDecimal totalPaid, Document document, Address address, String payer, Email email) {
         this.paidDate = paidDate;
         this.expireDate = expireDate;
         this.total = total;
         this.totalPaid = totalPaid;
-        this.number = number;
         this.document = document;
         this.address = address;
         this.payer = payer;
+        this.email = email;
     }
 
     public Date getPaidDate() {
         return paidDate;
     }
 
-    public void setPaidDate(Date paidDate) {
-        this.paidDate = paidDate;
-    }
-
     public Date getExpireDate() {
         return expireDate;
-    }
-
-    public void setExpireDate(Date expireDate) {
-        this.expireDate = expireDate;
     }
 
     public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(BigDecimal total) {
-        this.total = total;
-    }
-
     public BigDecimal getTotalPaid() {
         return totalPaid;
-    }
-
-    public void setTotalPaid(BigDecimal totalPaid) {
-        this.totalPaid = totalPaid;
     }
 
     public String getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getDocument() {
+    public Document getDocument() {
         return document;
     }
 
-    public void setDocument(String document) {
-        this.document = document;
-    }
-
-    public String getAddress() {
+    public Address getAddress() {
         return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getPayer() {
         return payer;
     }
 
-    public void setPayer(String payer) {
-        this.payer = payer;
+    public Email getEmail() {
+        return email;
     }
-
 }
 

@@ -2,6 +2,9 @@ package balta.io.ddd.demo.paymentContext.entities;
 
 import balta.io.ddd.demo.paymentContext.domain.entities.Student;
 import balta.io.ddd.demo.paymentContext.domain.entities.Subscription;
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Document;
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Email;
+import balta.io.ddd.demo.paymentContext.domain.valueObjects.Name;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +20,7 @@ public class StudentTests {
     public void addSubscriptionRightWay() {
 
         Subscription subscription = new Subscription(new Date());
-        Student student = new Student("André","Baltieri","1234567812","hello@balta.io");
+        Student student = new Student(new Name("André","Baltieri"),new Document("1234567812", Document.Type.CPF), new Email("hello@balta.io"), null);
 
         student.addSubscription(subscription);
 
@@ -28,7 +31,7 @@ public class StudentTests {
     public void addSubscriptionWrongWay() {
 
         Subscription subscription = new Subscription(new Date());
-        Student student = new Student("André","Baltieri","1234567812","hello@balta.io");
+        Student student = new Student(new Name("André","Baltieri"),new Document("1234567812", Document.Type.CPF), new Email("hello@balta.io"), null);
 
         student.getSubscriptionList().add(subscription);
 
